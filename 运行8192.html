@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>仿液态玻璃版8192</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video class="bg-video" src="Background.mp4" autoplay muted loop playsinline></video>
+  <div class="container">
+    <h1>8192</h1>
+    <div class="scoreboard">
+      <div class="score"><div class="label">分数</div><div class="value" id="score">0</div></div>
+      <div class="score"><div class="label">最高</div><div class="value" id="best">0</div></div>
+    </div>
+    <div class="board">
+      <div class="grid"></div>
+    </div>
+    <div class="controls">
+      <button id="new">新游戏</button>
+      <button id="ai-toggle">AI运行</button>
+    </div>
+  </div>
+  <div class="overlay" id="won"></div>
+  <div class="overlay" id="over"></div>
+  <script src="script.js"></script>
+    <script src="autoPlayer.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;}
+body{min-height:100vh;display:flex;justify-content:center;align-items:center;background:#000;overflow:hidden;}
+.bg-video{position:fixed;inset:0;object-fit:cover;width:100%;height:100%;z-index:-1;filter:brightness(.7);}
+@keyframes bgmove{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.container{text-align:center;z-index:5;width:100%;max-width:700px;padding:20px;margin:auto;}
+h1{font-size:64px;font-weight:700;background:linear-gradient(135deg,#fff,rgba(255,255,255,.8));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 4px rgba(0,0,0,.15));margin-bottom:20px;}
+.scoreboard{display:flex;justify-content:center;gap:20px;margin-bottom:25px;}
+.score{background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:10px 24px;color:#fff;box-shadow:0 6px 20px rgba(31,38,135,.3);}
+.score .label{font-size:12px;opacity:.7;text-transform:uppercase;}
+.score .value{font-size:24px;font-weight:700;}
+.board{position:relative;background:rgba(255,255,255,.08);backdrop-filter:blur(45px) saturate(180%);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:12px;display:inline-block;box-shadow:0 18px 60px rgba(0,0,0,.25),0 4px 6px rgba(255,255,255,.4) inset;}
+.board::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.6) 0%,rgba(255,255,255,0) 60%),linear-gradient(45deg,rgba(255,255,255,.25) 20%,rgba(255,255,255,0) 80%);mix-blend-mode:overlay;pointer-events:none;}
+.grid{display:grid;grid-template-columns:repeat(4,140px);grid-template-rows:repeat(4,140px);gap:14px;}
+.cell{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:18px;}
+.tile{position:absolute;width:140px;height:140px;border-radius:18px;display:flex;justify-content:center;align-items:center;font-size:40px;font-weight:700;transition:.16s;box-shadow:0 4px 16px rgba(0,0,0,.1);color:#fff;}
+.tile-2{background:#FFD1DC;color:#333}
+.tile-4{background:#FFF5BA;color:#333}
+.tile-8{background:#D5F3F4;color:#333}
+.tile-16{background:#E8D1FF;color:#333}
+.tile-32{background:#FFDAC1;color:#333}
+.tile-64{background:#C8E7F9;color:#333}
+.tile-128{background:#D9B5FF;font-size:28px;color:#333}
+.tile-256{background:#B0E0E6;font-size:28px;color:#333}
+.tile-512{background:#FFB7B2;font-size:28px;color:#333}
+.tile-1024{background:#C8FACC;font-size:24px;color:#333}
+.tile-2048{background:#FFE5B4;font-size:24px;color:#333}
+.tile-4096{background:#FFECB3;font-size:24px;color:#333}
+.tile-8192{background:#FFC0CB;font-size:24px;color:#333;animation:glow 2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(255,215,0,.7)}50%{box-shadow:0 0 40px rgba(255,215,0,1)}}
+.controls{margin-top:24px;display:flex;gap:12px;justify-content:center}
+button{padding:12px 28px;border:none;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-weight:600;cursor:pointer;backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);transition:.2s;}
+button:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.overlay{position:fixed;inset:0;display:none;justify-content:center;align-items:center;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);z-index:50;}
+.modal{background:rgba(255,255,255,.1);backdrop-filter:blur(35px);padding:40px;border-radius:24px;border:1px solid rgba(255,255,255,.2);color:#fff;text-align:center;}
+.modal h2{font-size:40px;margin-bottom:16px;-webkit-background-clip:text;background-clip:text;background:linear-gradient(135deg,#fff,rgba(255,255,255,.8));-webkit-text-fill-color:transparent;}
+@media(max-width:600px){.grid{grid-template-columns:repeat(4,70px);grid-template-rows:repeat(4,70px);gap:8px}.cell,.tile{width:70px;height:70px;font-size:24px;border-radius:14px}.tile-128,.tile-256,.tile-512{font-size:20px}.tile-1024,.tile-2048,.tile-4096,.tile-8192{font-size:18px}}
+/* Liquid Glass效果灵感来源于苹果公司的设计语言，此处仅为学习与个人项目演示目的进行视觉实现，并未用于任何商业用途。*/
